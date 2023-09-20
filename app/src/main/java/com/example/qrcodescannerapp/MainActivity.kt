@@ -100,9 +100,9 @@ class MainActivity : AppCompatActivity() {
                 intent.data = Uri.parse(qrCodeContent)
                 openAppOrPromptToInstall(intent, "com.phonepe.app")
             }
-            // Handle unsupported or unknown QR code content
+
             else -> {
-                // You can display an error message or take appropriate action here
+
             }
         }
     }
@@ -112,19 +112,19 @@ class MainActivity : AppCompatActivity() {
             // Check if the app is installed
             val packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES)
             if (packageInfo != null) {
-                // The app is installed, so launch it
+
                 intent.setPackage(packageName)
                 startActivity(intent)
             } else {
-                // The app is not installed, prompt the user to install it
+
                 val playStoreIntent = Intent(Intent.ACTION_VIEW)
                 playStoreIntent.data = Uri.parse("market://details?id=$packageName")
                 startActivity(playStoreIntent)
             }
         } catch (e: PackageManager.NameNotFoundException) {
-            // Handle exceptions, e.g., the package name is not found
+
         } catch (e: ActivityNotFoundException) {
-            // Handle exceptions, e.g., the app is not found in the Play Store
+
         }
     }
 
@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity() {
             if (allPermissionsGranted()) {
                 startScanning()
             } else {
-                // Handle the case where permissions were denied
+
             }
         }
     }
